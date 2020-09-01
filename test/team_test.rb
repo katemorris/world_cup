@@ -19,25 +19,33 @@ class PlayerTest < Minitest::Test
 
   def test_the_team_has_been_eliminated
     assert_equal false, @team.eliminated?
+    
+    @team.eliminated = true
 
-    team.eliminated = true
-
-    assert team.eliminated?
+    assert @team.eliminated?
   end
 
   def test_the_team_has_players
-    assert_equal [], team.players
+    assert_equal [], @team.players
 
     mbappe = Player.new({name: "Kylian Mbappe", position: "forward"})
     pogba = Player.new({name: "Paul Pogba", position: "midfielder"})
 
-    team.add_player(mbappe)
-    team.add_player(pogba)
+    @team.add_player(mbappe)
+    @team.add_player(pogba)
 
-    assert_equal [mbappe, pogba], team.players
+    assert_equal [mbappe, pogba], @team.players
   end
 
   def test_returning_players_by_position
-    assert_equal [pogba], team.players_by_position("midfielder")
-    assert_equal [], team.players_by_position("defender")
+
+    mbappe = Player.new({name: "Kylian Mbappe", position: "forward"})
+    pogba = Player.new({name: "Paul Pogba", position: "midfielder"})
+
+    @team.add_player(mbappe)
+    @team.add_player(pogba)
+
+    assert_equal [pogba], @team.players_by_position("midfielder")
+    assert_equal [], @team.players_by_position("defender")
   end
+end
