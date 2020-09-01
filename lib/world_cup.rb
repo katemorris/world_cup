@@ -15,4 +15,14 @@ class WorldCup
     end.flatten.compact
   end
 
+  def all_players_by_position
+    all_team_players = @teams.map do |team|
+      team.players
+    end.flatten
+
+    all_team_players.group_by do |player|
+      player.position
+    end
+  end
+
 end

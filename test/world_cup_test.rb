@@ -39,7 +39,7 @@ class WorldCupTest < Minitest::Test
 
   def test_can_see_allplayers_by_position
     players_example = {"forward" => [@mbappe], "midfielder" => [@pogba, @modric], "defender" => [@vida]}
-    assert_equal players_example, world_cup.all_players_by_position
+    assert_equal players_example, @world_cup.all_players_by_position
   end
 
 end
