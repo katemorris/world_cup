@@ -23,7 +23,7 @@ class WorldCupTest < Minitest::Test
   end
 
   def test_it_exists
-    assert_instance_of WorldCup, @worldcup
+    assert_instance_of WorldCup, @world_cup
   end
 
   def test_it_has_attributes
@@ -33,8 +33,8 @@ class WorldCupTest < Minitest::Test
 
   def test_can_return_active_players_by_position
     assert_equal [@pogba, @modric], @world_cup.active_players_by_position("midfielder")
-    croatia.eliminated = true
+    @croatia.eliminated = true
     assert_equal [@pogba], @world_cup.active_players_by_position("midfielder")
   end
 
-end   
+end
